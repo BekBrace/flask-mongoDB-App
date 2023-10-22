@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongDB Flask App</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}"/>
+</head>
+<body>
+    <h1>MongoDB Flask App</h1>
+    <hr>
+    <div class="content">
+        <form method="POST">
+            <p>
+                <b><label for="content">Todo Content</label></b>
+            </p>
+            <p>
+            <input type="text" name="content" placeholder="todo content...">
+            </p>
+            <p>
+                <b><label for="degree">Degree</label></b>
+            </p>
+            <p>
+                <input 
+                id="degree-0" 
+                name="degree" 
+                required 
+                type="radio" value="important">
+                <label for="degree-0">Important</label>
+            </p>
+            <p>
+                <input 
+                id="degree-1" 
+                name="degree" 
+                required 
+                type="radio" value="unimportant">
+                <label for="degree-1">Unimportant</label>
+            </p>
+            <button type="submit">Submit</button>
+        </form>
+		<hr>
+		{% for todo in todos %}
+		<div class="todo">
+	    <!--Fetching a todo-->
+		<p> {{ todo['content'] }} <i>
+			({{ todo['degree'] }})</i> 
+		</p>
+		<!-- Deleting a todo -->
+		<form method="POST" 
+			  action="{{ url_for('delete', id=todo['_id']) }}">
+		<input 
+			  type="submit"
+			  value="delete todo"
+			  onclick="return 
+			  confirm('Are you sure you want to delete this entry?')"/>
+		</form>
+		</div>
+		{% endfor %}
+    </div>
+</body>
+</html>
