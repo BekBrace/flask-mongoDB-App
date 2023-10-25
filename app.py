@@ -22,7 +22,7 @@ def index():
     return render_template('index.html', todos = all_todos) # render home page template with all todos
 #Delete Route
 @app.post("/<id>/delete/")
-def delete(id): #targetin a todo document by its own id
+def delete(id): #delete function by targeting a todo document by its own id
     todos.delete_one({"_id":ObjectId(id)}) #deleting the selected todo document by its converted id
     return redirect(url_for('index')) # again, redirecting you to the home page 
 db = client.flask_database # creating your flask database using your mongo client 
