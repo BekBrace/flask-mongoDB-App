@@ -1,7 +1,7 @@
 # Flask-MongoDB-App
 This is a Flask application where we are going to connect MongoDB with Flask Application
 # | Bek Brace YouTube Channel |
-| Bek Brace YouTube Tutorial - November 2023 |
+| Bek Brace YouTube Tutorial - Mid November 2023 |
 
 ![image](https://github.com/BekBrace/Flask-MongoDB-App/assets/60483846/03b7f7e3-b5dc-4477-bed0-1ac6eb532308)
 
